@@ -1,0 +1,59 @@
+\begin{figure}[H]
+	\centering
+	\begin{circuitikz}[european, scale=1.5, transform shape]
+		\draw (0,0)
+		-- (4,0) to[short, *-] (4,0)
+		-- (10,0) node[right] {$\small V_{\text{\scriptsize DD}}$};
+
+		\draw (0,-5.5)
+		-- (4,-5.5) to[short, *-] (4,-5.5)
+		-- (10,-5.5) node[right] {\small GND};
+
+		\draw (4,0) -- (4, -0.5)
+		++(0, -0.5) node[pmos,emptycircle]{\small $M_1$} (4, -1.5)
+		++ (0, -1.05) node[pmos,emptycircle]{\small $M_2$} (4,-3)
+		++(0, -0.325) --(4, -3.41)
+		++(0, -1.055) node[nmos,emptycircle]{\small $M_3$} (4, -5)
+		++(0, -0.05) -- (4, -5.5);
+
+		\draw
+		(1, -1) node[left]{\small $A$}
+		-- (3.02, -1);
+
+		\draw (2.5, -1)
+		to [short, *-] (2.5, -1)
+		-- (2.5, -2.41)
+		++ (0, -0.28)
+		-- (2.5, -3.55)
+		-- (3.9, -3.55) ++(0.1, 0) node[jump crossing] ++(0.1, 0)
+		-- (5.3, -3.55)
+		-- (5.3, -4.275)
+		-- (5.525, -4.275);
+
+		\draw
+		(1, -2.55) node[left]{\small $B$}
+		-- (2.4, -2.55) ++(0.1, 0) node[jump crossing] (2.55, -2.55)
+		++(0.1, 0) -- (3.015, -2.55);
+
+		\draw (2, -2.55)
+		to [short, *-] (2, -2.55)
+		-- (2, -4.465) -- (3.02, -4.465);
+
+		\draw (6.5, -5.5)
+		to [short, *-] (6.5, -5.5)
+		-- (6.5, -5.05)
+		++(0, 0.775) node[nmos,emptycircle]{\small $M_4$} (6.5, -3.5)
+		-- (6.5, -2.75)
+		to[short, *-] (6.5, -2.75);
+
+		\draw (5, -2.75)
+		-- (10, -2.75) node[right] {\small Out};
+
+		\draw (4, -3.2)
+		to[short, *-] (4, -3.2)
+		-- (5, -3.2)
+		-- (5, -2.75);
+
+	\end{circuitikz}
+	\caption{NOR вентиль на nMOS и pMOS}
+\end{figure}
