@@ -1,0 +1,66 @@
+\subsubsection{Программная реализация на System Verilog}
+
+В данном коде представлен тестовый модуль для демультиплексора 1 к 4, написанный на языке \textbf{System Verilog}. Этот тестовый модуль (\textit{testbench}) предназначен для автоматической проверки правильности работы демультиплексора путём генерации всевозможных комбинаций входных сигналов и проверки их соответствия ожидаемым выходам. $uut$ - тестируемый демультиплексор. На него подаются $y\_in$ и $s\_in$, снимаются показания $z\_out$ и сравниваются с расчётными $z\_exp$ (expected).
+
+
+\begin{lstlisting}
+module demultiplexer_1_to_4_tb;
+    logic y_in;
+    logic [1:0] s_in;
+    wire [3:0] z_out;
+
+    // unit under test
+    demultiplexer_1_to_4 uut(
+        .y(y_in),
+        .s(s_in),
+        .z(z_out)
+    );
+
+    integer i;
+    logic [2:0] test_val;
+    logic [3:0] z_exp;
+
+    initial begin
+        for (i = 0; i < 8; i = i + 1) begin
+            test_val = i; // "slice" of 32-bit integer
+            {y_in, s_in} = test_val;
+
+            z_exp[0] = !s_in[0] && !s_in[1] && y_in;
+            z_exp[1] = s_in[0] && !s_in[1] && y_in;
+            z_exp[2] = !s_in[0] && s_in[1] && y_in;
+            z_exp[3] = s_in[0] && s_in[1] && y_in;
+
+            #10; // Delay
+
+            if (z_out == z_exp) begin
+                $display("PASS: s=%b, y=%b => z=%b (expected: %b)", s_in, y_in, z_out, z_exp);
+            end else begin
+                $display("FAIL: s=%b, y=%b => z=%b (expected: %b)", s_in, y_in, z_out, z_exp);
+            end
+        end
+
+        #10 $stop;
+    end
+endmodule
+\end{lstlisting}
+
+\subsubsection{Вывод программы}
+
+\begin{verbatim}
+# run 1000ns
+PASS: s=00, y=0 => z=0000 (expected: 0000)
+PASS: s=01, y=0 => z=0000 (expected: 0000)
+PASS: s=10, y=0 => z=0000 (expected: 0000)
+PASS: s=11, y=0 => z=0000 (expected: 0000)
+PASS: s=00, y=1 => z=0001 (expected: 0001)
+PASS: s=01, y=1 => z=0010 (expected: 0010)
+PASS: s=10, y=1 => z=0100 (expected: 0100)
+PASS: s=11, y=1 => z=1000 (expected: 1000)
+$stop called at time : 90 ns 
+\end{verbatim}
+
+\subsubsection{Пояснение вывода программы}
+
+Тестирование демультиплексора <<1 к 4>> показало корректность его работы. Для каждой комбинации входных сигналов $s$ и $y$ выходы $z$ соответствуют ожидаемым значениям $z\_exp$. Для всех возможных значений $s$ и $y$, тесты прошли успешно, что подтверждается выводом \textbf{"PASS"} \ в консоль симулятора с помощью встроенной функции \textbf{\$display}.
+
+Таким образом, демультиплексор правильно распределяет входной сигнал на один из четырёх выводов в зависимости от управляющих сигналов.

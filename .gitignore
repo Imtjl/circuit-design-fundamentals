@@ -23,3 +23,7 @@
 
 # Allow the README.md file
 !README.md
+
+# Ignore papers
+Labs
+books

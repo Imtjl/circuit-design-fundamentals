@@ -18,6 +18,8 @@
 \usepackage[hidelinks]{hyperref} % For table of contents to be clickable
 \usepackage{bookmark}
 \usepackage{multirow}
+\usepackage{multicol}
+\usepackage{tabularx}
 \usepackage{array}
 \usepackage{cancel}
 \usepackage{placeins}
@@ -28,13 +30,12 @@
 
 % -----------------------------------------------------
 
-% \input{../common/lstset.tex}
-% \input{../common/tikzset.tex}
+\include{../../common/lstset_sv}
 
 \begin{document}
 
 % Title page
-\input{../common/title-old.tex}
+\input{../../common/title-old.tex}
 \thispagestyle{empty}
 
 \newpage
@@ -63,6 +64,7 @@
 
 % -------------------------------
 
+\newpage
 \stepcounter{section}
 \section*{Часть 1}
 \addcontentsline{toc}{section}{Часть 1}
@@ -70,6 +72,8 @@
 
 % -------------------------------
 
+% \newpage
+\stepcounter{section}
 \section*{Часть 2}
 \addcontentsline{toc}{section}{Часть 2}
 \input{5-part2}

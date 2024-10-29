@@ -1,0 +1,11 @@
+\begin{figure}[H]
+	\centering
+	\begin{circuitikz}[european, scale=2.5, transform shape]
+		\draw[thick] node[ieeestd nor port] (N) {};
+		\draw[thick] (N.up) -- ++(0, 0.3) ++(0, 0.2) node[up] {\scriptsize $V_{\text{DD}}$}
+		\draw[thick] (N.left) ++ (-0.3, 0.3) node[left] {\scriptsize $A$}
+		\draw[thick] (N.left) ++ (-0.3, -0.3) node[left] {\scriptsize $B$}
+		\draw[thick] (N.N-not) ++ (1, 0) node[right] {\scriptsize Out}
+	\end{circuitikz}
+	\caption{символ NOR вентиля на nMOS и pMOS транзисторах}
+\end{figure}
