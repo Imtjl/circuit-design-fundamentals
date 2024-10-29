@@ -1,0 +1,17 @@
+% listing for SystemVerilog code blocks
+\lstset{
+	language=Verilog,             % Set language to Verilog for SystemVerilog syntax highlighting
+	basicstyle=\ttfamily\normalsize, % Set font family and size
+	keywordstyle=\color{blue}\bfseries, % Style for keywords (bold blue for visibility)
+	stringstyle=\color{orange},   % Style for strings
+	commentstyle=\color{gray},    % Style for comments
+	morekeywords={logic, module, input, output, wire, reg, always, posedge, negedge, endmodule, initial, task, endtask, if, else, case, endcase, for, assign}, % Add SystemVerilog-specific keywords
+	morecomment=[l][\color{magenta}]{//}, % Style for single-line comments
+	morecomment=[s][\color{magenta}]{/*}{*/}, % Style for multi-line comments
+	breaklines=true,              % Enable line breaking for long lines
+	numbers=left,                 % Line numbering on the left
+	numberstyle=\tiny\color{gray},% Style for line numbers
+	frame=single,                 % Add frame around code
+	showstringspaces=false,       % Don’t show spaces in strings
+	tabsize=4,                    % Set tab width to 4 spaces
+}
