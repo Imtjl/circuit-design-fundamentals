@@ -1,0 +1,54 @@
+\setlength{\columnsep}{2.6cm}
+
+\begin{multicols}{2}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.6\textwidth]{../data/boe_front_delay.png}
+		\captionsetup{width=1\textwidth}
+		\centering
+		\caption{Передний фронт сигнала Z_0}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.6\textwidth]{../data/boe_back_delay.png}
+		\captionsetup{width=1\textwidth}
+		\centering
+		\caption{Задний фронт сигнала Z_0}
+	\end{figure}
+
+	\columnbreak
+
+	\centering
+	\vspace*{0.9cm}
+	Расчёт задержек:
+
+	\vspace*{-0.3cm}
+	\[
+		\begin{gathered}
+			t_{Y_{0.5}} = 13.000015 \, \text{мс} \\
+			t_{B_{0.5}} = 13.000083 \, \text{мс} \\
+			t_{pd_\uparrow} = 68 \, \text{нс} \\
+		\end{gathered}
+	\]
+
+	\vspace*{5cm}
+	Расчёт задержек:
+
+	\vspace*{-0.3cm}
+	\[
+		\begin{gathered}
+			t_{Y_{0.5}} = 23.000005 \, \text{мс} \\
+			t_{A_{0.5}} = 23.000143 \, \text{мс} \\
+			t_{pd_\downarrow} = 138 \, \text{нс} \\
+		\end{gathered}
+	\]
+\end{multicols}
+
+\subsubsection{Расчёт задержки распространения схемы}
+Исходя из задержек переднего и заднего фронтов:
+
+\[
+	t_{pd} = \frac{t_\uparrow + t_\downarrow}{2} = \frac{68+138}{2} = 103 \, \text{нс}
+\]

@@ -1,0 +1,52 @@
+\setlength{\columnsep}{2.5cm}
+
+\begin{multicols}{2}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.58\textwidth]{../data/nor_front_delay.png}
+		\captionsetup{width=1\textwidth}
+		\centering
+		\caption{Передний~фронт~сигнала~Y}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.6\textwidth]{../data/nor_back_delay.png}
+		\caption{Задний фронт сигнала Y}
+	\end{figure}
+
+	\columnbreak
+
+	\centering
+	\vspace*{0.9cm}
+	Расчёт задержек:
+
+	\vspace*{-0.3cm}
+	\[
+		\begin{gathered}
+			t_{Y_{0.5}} = 4.0000355 \, \text{мс} \\
+			t_{B_{0.5}} = 4.000015 \, \text{мс} \\
+			t_{pd_\uparrow} = 20.5 \, \text{нс} \\
+		\end{gathered}
+	\]
+
+	\vspace*{5cm}
+	Расчёт задержек:
+
+	\vspace*{-0.3cm}
+	\[
+		\begin{gathered}
+			t_{Y_{0.5}} = 5.0000095 \, \text{мс} \\
+			t_{A_{0.5}} = 5.000005 \, \text{мс} \\
+			t_{pd_\downarrow} = 4.5 \, \text{нс} \\
+		\end{gathered}
+	\]
+\end{multicols}
+
+\subsubsection{Расчёт задержки распространения схемы}
+Исходя из задержек переднего и заднего фронтов:
+
+\[
+	t_{pd} = \frac{t_\uparrow + t_\downarrow}{2} = \frac{20.5+4.5}{2} = 12.5 \, \text{нс}
+\]
