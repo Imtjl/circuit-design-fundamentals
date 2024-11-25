@@ -25,7 +25,8 @@ module top(
     input wire CLK100MHZ,
     output wire clk_1khz,
     output wire [7:0] AN,
-    output wire CA, CB, CC, CD, CE, CF, CG, DP
+    output wire CA, CB, CC, CD, CE, CF, CG, DP,
+    output wire LED16_R, LED16_G, LED16_B
 );
 
     freq_divider #(.DIVIDER(50000)) divider (
